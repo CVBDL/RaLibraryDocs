@@ -116,14 +116,15 @@ POST /ralibrary/api/user
 
 | Name     | Type   | Description                               |
 | -------- | ------ | ----------------------------------------- |
-| username | string | Domain account username like: patrick.    |
-| password | string | The password.                             |
+| UserName | string | Domain account username like: patrick.    |
+| Password | string | The password.                             |
 
 #### Example
 
 ```json
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ"
+  "AccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ",
+  "IsAdmin": false
 }
 ```
 
