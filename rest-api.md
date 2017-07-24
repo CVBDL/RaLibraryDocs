@@ -12,8 +12,6 @@
   * [Authentication](#authentication)
   * [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
 * [Users](#users)
-  * [Get token via username and password](#get-token-via-username-and-password)
-  * [Get the authenticated user informatioin](#get-the-authenticated-user-informatioin)
   * [List the authenticated user borrowed books](#list-the-authenticated-user-borrowed-books)
   * [Borrow a book](#borrow-a-book)
   * [Return a book](#return-a-book)
@@ -82,6 +80,7 @@ Verb `PATCH` is an uncommon HTTP verb, so use `POST` instead.
 RALibrary API accepts an OAuth2 bearer JWT token in the HTTP header
 `Authorization`.
 Requests that require authentication will return `401 Unauthorized`.
+See [how to get an access token](https://github.com/CVBDL/RAAuthenticationDocs/blob/master/rest-api.md)
 
 ```
 curl -H "Authorization: Bearer JWT" http://hostname:port/ralibrary/api/books
@@ -103,54 +102,6 @@ Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS
 ```
 
 ## Users
-
-### Get token via username and password
-
-User could exchange a token via windows domain account.
-
-```text
-POST /ralibrary/api/user
-```
-
-#### Input
-
-| Name     | Type   | Description                               |
-| -------- | ------ | ----------------------------------------- |
-| UserName | string | Domain account username like: patrick.    |
-| Password | string | The password.                             |
-
-#### Example
-
-```json
-{
-  "AccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.jIBK2wO6qtoAdT4v5bGaPP_ytZfIMqW_4Ofh9UTLqj4",
-  "IsAdmin": false
-}
-```
-
-### Get the authenticated user details
-
-Get the full Active Directory information of the authenticated user.
-
-```text
-POST /ralibrary/api/user/details
-```
-
-#### Input
-
-| Name     | Type   | Description                               |
-| -------- | ------ | ----------------------------------------- |
-| username | string | Domain account username like: patrick.    |
-| password | string | The password.                             |
-
-#### Example
-
-```json
-{
-  "DisplayName": "Patrick Zhong",
-  "EmailAddress": "patrick.zhong@example.com"
-}
-```
 
 ### List the authenticated user borrowed books
 
