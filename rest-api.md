@@ -12,6 +12,7 @@
   * [Authentication](#authentication)
   * [Cross Origin Resource Sharing](#cross-origin-resource-sharing)
 * [Users](#users)
+  * [Get the authenticated user informatioin](#get-the-authenticated-user-informatioin)
   * [List the authenticated user borrowed books](#list-the-authenticated-user-borrowed-books)
   * [Borrow a book](#borrow-a-book)
   * [Return a book](#return-a-book)
@@ -102,6 +103,20 @@ Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS
 ```
 
 ## Users
+
+### Get the authenticated user informatioin
+
+```text
+GET /api/user/details
+```
+
+#### Example
+
+```json
+{
+  "IsAdmin": false
+}
+```
 
 ### List the authenticated user borrowed books
 
