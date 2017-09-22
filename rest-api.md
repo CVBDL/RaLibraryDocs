@@ -22,6 +22,7 @@
   * [Create a book](#create-a-book)
   * [Edit a book](#edit-a-book)
   * [Delete a book](#delete-a-book)
+* [Books open API proxy](#books-open-api-proxy)
 
 ## Overview
 
@@ -124,6 +125,8 @@ GET /api/user/details
 
 ### List the authenticated user borrowed books
 
+Authorization is required to use this API.
+
 ```text
 GET /ralibrary/api/user/books
 
@@ -136,25 +139,67 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwM
 [
   {
     "Id": 1,
-    "BarCode": "P01",
-    "Title": "Professional JavaScript for Web"
+    "Code": "P001",
+    "ISBN10": "0596008031",
+    "ISBN13": "9780596008031",
+    "Title": "Designing Interfaces",
+    "Subtitle": "Patterns for Effective Interaction Design",
+    "Authors": "Jenifer Tidwell",
+    "Publisher": "\"O'Reilly Media, Inc.\"",
+    "PublishedDate": "2005-11-21",
+    "Description": "Provides information on designing easy-to-use interfaces....",
+    "PageCount": 331,
+    "ThumbnailLink": "http://books.google.com/books/content?id=1D2bAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "CreatedDate": "2017-09-21T13:49:45.243",
+    "RowVersion": "AAAAAAABIRE=",
+    "IsBorrowed": true
+  },
+  {
+    "Id": 2,
+    "Code": "P002",
+    "ISBN10": "7111348664",
+    "ISBN13": "9787111348665",
+    "Title": "以用户为中心的产品设计",
+    "Subtitle": "",
+    "Authors": "Jesse James Garrett",
+    "Publisher": null,
+    "PublishedDate": "2011",
+    "Description": null,
+    "PageCount": 191,
+    "ThumbnailLink": null,
+    "CreatedDate": "2017-09-21T13:49:45.243",
+    "RowVersion": "AAAAAAABAdI=",
+    "IsBorrowed": true
+  },
+  {
+    "Id": 3,
+    "Code": "P003",
+    "ISBN10": "7115313083",
+    "ISBN13": "9787115313089",
+    "Title": "Designing Interfaces",
+    "Subtitle": "Patterns for Effective Interaction Design",
+    "Authors": "[美] Susan Weinschenk",
+    "Publisher": "人民邮电出版社",
+    "PublishedDate": "2013",
+    "Description": "本书出自国际知名的设计心理学专家之手,讨论了设计师必须知道的100个心理学问题.",
+    "PageCount": 236,
+    "ThumbnailLink": null,
+    "CreatedDate": "2017-09-21T13:49:45.243",
+    "RowVersion": "AAAAAAABAdM=",
+    "IsBorrowed": true
   }
 ]
 ```
 
 ### Borrow a book
 
+Authorization is required to use this API.
+
 ```text
-POST /ralibrary/api/user/books
+POST /ralibrary/api/user/books/:id
 
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.E41uEnlFDhLk_05ftd95xNdbxSuVpO1X1TTJ5uJDStE
 ```
-
-#### Input
-
-| Name  | Type   | Description         |
-| ----- | ------ | ------------------- |
-| Id    | string | The id of the book. |
 
 #### Response
 
@@ -163,6 +208,8 @@ HTTP/1.1 204 No Content
 ```
 
 ### Return a book
+
+Authorization is required to use this API.
 
 ```text
 DELETE /ralibrary/api/user/books/:Id
@@ -280,6 +327,8 @@ Authorization is required to use this API.
 
 ```
 POST /ralibrary/api/books
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.E41uEnlFDhLk_05ftd95xNdbxSuVpO1X1TTJ5uJDStE
 ```
 
 #### Input
@@ -344,6 +393,8 @@ Authorization is required to use this API.
 
 ```
 POST /ralibrary/api/books/:Id
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.E41uEnlFDhLk_05ftd95xNdbxSuVpO1X1TTJ5uJDStE
 ```
 
 #### Input
@@ -417,10 +468,49 @@ Authorization is required to use this API.
 
 ```text
 DELETE /ralibrary/api/books/:Id
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.E41uEnlFDhLk_05ftd95xNdbxSuVpO1X1TTJ5uJDStE
 ```
 
 #### Response
 
 ```text
 HTTP/1.1 204 No Content
+```
+
+## Books open API proxy
+
+### Get book details by ISBN
+
+```text
+GET /ralibrary/apibook/isbn/:isbn
+```
+
+#### Example
+
+```text
+GET /ralibrary/apibook/isbn/0596008031
+```
+
+OR
+
+```text
+GET /ralibrary/apibook/isbn/9780596008031
+```
+
+#### Response
+
+```json
+{
+  "ISBN10": "0596008031",
+  "ISBN13": "9780596008031",
+  "Title": "Designing Interfaces",
+  "Subtitle": "Patterns for Effective Interaction Design",
+  "Authors": "",
+  "Publisher": "O'Reilly Media",
+  "PublishedDate": "2005-11-28",
+  "Description": "Designing a good interface isn't easy. Users demand software that is well-behaved, good-looking, and easy to use. Your clients or managers demand originality and a short time to market. Your UI technology -- Web applications, desktop software, even mobile devices - may give you the tools you need, but little guidance on how to use them well. UI designers over the years have refined the art of interface design, evolving many best practices and reusable ideas. If you learn these, and understand why the best user interfaces work so well, you too can design engaging and usable interfaces with less guesswork and more confidence. \"Designing Interfaces\" captures those best practices as design patterns - solutions to common design problems, tailored to the situation at hand. Each pattern contains practical advice that you can put to use immediately, plus a variety of examples illustrated in full color. You'll get recommendations, design alternatives, and warnings on when not to use them. Each chapter's introduction describes key design concepts that are often misunderstood, such as affordances, visual hierarchy, navigational distance, and the use of color.  These give you a deeper understanding of why the patterns work, and how to apply them with more insight. A book can't design an interface for you - no foolproof design process is given here - but \"Designing Interfaces\" does give you concrete ideas that you can mix and recombine as you see fit. Experienced designers can use it as a sourcebook of ideas. Novice designers will find a roadmap to the world of interface and interaction design, with enough guidance to start using these patterns immediately.",
+  "ThumbnailLink": "https://img3.doubanio.com/mpic/s7411251.jpg",
+  "PageCount": 352
+}
 ```
