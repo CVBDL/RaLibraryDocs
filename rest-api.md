@@ -106,6 +106,8 @@ Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS
 
 ### Get the authenticated user informatioin
 
+Authorization is required to use this API.
+
 ```text
 GET /api/user/details
 ```
@@ -114,7 +116,9 @@ GET /api/user/details
 
 ```json
 {
-  "IsAdmin": false
+  "Email": "patrick@example.com",
+  "Name": "Patrick Zhong",
+  "IsAdmin": true
 }
 ```
 
@@ -176,6 +180,8 @@ HTTP/1.1 204 No Content
 
 ### List books
 
+No authorization required to use this API.
+
 ```
 GET /ralibrary/api/books
 ```
@@ -186,18 +192,61 @@ GET /ralibrary/api/books
 [
   {
     "Id": 1,
-    "BarCode": "P01",
-    "Title": "Professional JavaScript for Web"
+    "Code": "P001",
+    "ISBN10": "0596008031",
+    "ISBN13": "9780596008031",
+    "Title": "Designing Interfaces",
+    "Subtitle": "Patterns for Effective Interaction Design",
+    "Authors": "Jenifer Tidwell",
+    "Publisher": "\"O'Reilly Media, Inc.\"",
+    "PublishedDate": "2005-11-21",
+    "Description": "Provides information on designing easy-to-use interfaces.",
+    "PageCount": 331,
+    "ThumbnailLink": "http://books.google.com/books/content?id=1D2bAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "CreatedDate": "2017-09-21T13:49:45.243",
+    "RowVersion": "AAAAAAABAdE=",
+    "IsBorrowed": false
   },
   {
     "Id": 2,
-    "BarCode": "P02",
-    "Title": "ASP.NET4.5 entry Classic - ( 7th Edition )(Chinese Edition)"
+    "Code": "P002",
+    "ISBN10": "7111348664",
+    "ISBN13": "9787111348665",
+    "Title": "以用户为中心的产品设计",
+    "Subtitle": "",
+    "Authors": "Jesse James Garrett",
+    "Publisher": null,
+    "PublishedDate": "2011",
+    "Description": null,
+    "PageCount": 191,
+    "ThumbnailLink": null,
+    "CreatedDate": "2017-09-21T13:49:45.243",
+    "RowVersion": "AAAAAAABAdI=",
+    "IsBorrowed": false
+  },
+  {
+    "Id": 5,
+    "Code": "P005",
+    "ISBN10": "0596554877",
+    "ISBN13": "9780596554873",
+    "Title": "JavaScript: The Good Parts",
+    "Subtitle": "The Good Parts",
+    "Authors": "Douglas Crockford",
+    "Publisher": "\"O'Reilly Media, Inc.\"",
+    "PublishedDate": "2008-05-08",
+    "Description": "Most programming languages contain good and bad parts, but JavaScript has more than its share of the bad, having been developed and released in a hurry before it could be refined. This authoritative book scrapes away these bad features to reveal a subset of JavaScript that's more reliable, readable, and maintainable than the language as a whole—a subset you can use to create truly extensible and efficient code. Considered the JavaScript expert by many people in the development community, author Douglas Crockford identifies the abundance of good ideas that make JavaScript an outstanding object-oriented programming language-ideas such as functions, loose typing, dynamic objects, and an expressive object literal notation. Unfortunately, these good ideas are mixed in with bad and downright awful ideas, like a programming model based on global variables. When Java applets failed, JavaScript became the language of the Web by default, making its popularity almost completely independent of its qualities as a programming language. In JavaScript: The Good Parts, Crockford finally digs through the steaming pile of good intentions and blunders to give you a detailed look at all the genuinely elegant parts of JavaScript, including: Syntax Objects Functions Inheritance Arrays Regular expressions Methods Style Beautiful features The real beauty? As you move ahead with the subset of JavaScript that this book presents, you'll also sidestep the need to unlearn all the bad parts. Of course, if you want to find out more about the bad parts and how to use them badly, simply consult any other JavaScript book. With JavaScript: The Good Parts, you'll discover a beautiful, elegant, lightweight and highly expressive language that lets you create effective code, whether you're managing object libraries or just trying to get Ajax to run fast. If you develop sites or applications for the Web, this book is an absolute must.",
+    "PageCount": 172,
+    "ThumbnailLink": "http://books.google.com/books/content?id=PXa2bby0oQ0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+    "CreatedDate": "2017-09-21T13:49:45.243",
+    "RowVersion": "AAAAAAABAdU=",
+    "IsBorrowed": false
   }
 ]
 ```
 
 ### Get a single book
+
+No authorization required to use this API.
 
 ```
 GET /ralibrary/api/books/:Id
@@ -208,12 +257,26 @@ GET /ralibrary/api/books/:Id
 ```json
 {
   "Id": 1,
-  "BarCode": "P01",
-  "Title": "Professional JavaScript for Web"
+  "Code": "P001",
+  "ISBN10": "0596008031",
+  "ISBN13": "9780596008031",
+  "Title": "Designing Interfaces",
+  "Subtitle": "Patterns for Effective Interaction Design",
+  "Authors": "Jenifer Tidwell",
+  "Publisher": "\"O'Reilly Media, Inc.\"",
+  "PublishedDate": "2005-11-21",
+  "Description": "Provides information on designing easy-to-use interfaces.",
+  "PageCount": 331,
+  "ThumbnailLink": "http://books.google.com/books/content?id=1D2bAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "CreatedDate": "2017-09-21T13:49:45.243",
+  "RowVersion": "AAAAAAABAdE=",
+  "IsBorrowed": false
 }
 ```
 
 ### Create a book
+
+Authorization is required to use this API.
 
 ```
 POST /ralibrary/api/books
@@ -223,20 +286,61 @@ POST /ralibrary/api/books
 
 | Name           | Type   | Description                  |
 | -------------- | ------ | ---------------------------- |
-| BarCode        | string | Internal book code. Unique.  |
-| Title          | string | Book title.                  |
+| Code           | string | Internal book code. Unique.  |
+| ISBN10         | string | ISBN 10.                     |
+| ISBN13         | string | ISBN 13.                     |
+| Title          | string | Title.                       |
+| Subtitle       | string | Subtitle.                    |
+| Authors        | string | Authors.                     |
+| Publisher      | string | Publisher.                   |
+| PublishedDate  | string | Published date.              |
+| Description    | string | Description.                 |
+| PageCount      | number | Page count.                  |
+| ThumbnailLink  | string | Thumbnail image link.        |
 
 #### Example
 
 ```json
 {
-  "Id": 3,
-  "BarCode": "P03",
-  "Title": "C++ Primer (5th Edition)"
+  "Code": "P001",
+  "ISBN10": "0596008031",
+  "ISBN13": "9780596008031",
+  "Title": "Designing Interfaces",
+  "Subtitle": "Patterns for Effective Interaction Design",
+  "Authors": "Jenifer Tidwell",
+  "Publisher": "\"O'Reilly Media, Inc.\"",
+  "PublishedDate": "2005-11-21",
+  "Description": "Provides information on designing easy-to-use interfaces.",
+  "PageCount": 331,
+  "ThumbnailLink": "http://books.google.com/books/content?id=1D2bAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+}
+```
+
+#### Response
+
+```json
+{
+  "Id": 1,
+  "Code": "P001",
+  "ISBN10": "0596008031",
+  "ISBN13": "9780596008031",
+  "Title": "Designing Interfaces",
+  "Subtitle": "Patterns for Effective Interaction Design",
+  "Authors": "Jenifer Tidwell",
+  "Publisher": "\"O'Reilly Media, Inc.\"",
+  "PublishedDate": "2005-11-21",
+  "Description": "Provides information on designing easy-to-use interfaces.",
+  "PageCount": 331,
+  "ThumbnailLink": "http://books.google.com/books/content?id=1D2bAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "CreatedDate": "2017-09-21T13:49:45.243",
+  "RowVersion": "AAAAAAABAdE=",
+  "IsBorrowed": false
 }
 ```
 
 ### Edit a book
+
+Authorization is required to use this API.
 
 ```
 POST /ralibrary/api/books/:Id
@@ -244,22 +348,72 @@ POST /ralibrary/api/books/:Id
 
 #### Input
 
+Note: All of these fields are required, otherwith the fields will be updated to
+their default values.
+
+Note: `RowVersion` is generated by server and response to client when do a query.
+
 | Name           | Type   | Description                  |
 | -------------- | ------ | ---------------------------- |
-| BarCode        | string | Internal book code. Unique.  |
-| Title          | string | Book title.                  |
+| Id             | number | Book id.                     |
+| Code           | string | Internal book code. Unique.  |
+| ISBN10         | string | ISBN 10.                     |
+| ISBN13         | string | ISBN 13.                     |
+| Title          | string | Title.                       |
+| Subtitle       | string | Subtitle.                    |
+| Authors        | string | Authors.                     |
+| Publisher      | string | Publisher.                   |
+| PublishedDate  | string | Published date.              |
+| Description    | string | Description.                 |
+| PageCount      | number | Page count.                  |
+| ThumbnailLink  | string | Thumbnail image link.        |
+| RowVersion     | string | Used for concurrency check.  |
 
 #### Example
 
 ```json
 {
-  "Id": 3,
-  "BarCode": "P03",
-  "Title": "C++ Primer (5th Edition)"
+  "Id": 1,
+  "Code": "P001",
+  "ISBN10": "0596008031",
+  "ISBN13": "9780596008031",
+  "Title": "Designing Interfaces",
+  "Subtitle": "Patterns for Effective Interaction Design",
+  "Authors": "Jenifer Tidwell",
+  "Publisher": "\"O'Reilly Media, Inc.\"",
+  "PublishedDate": "2005-11-21",
+  "Description": "[Updated] Provides information on designing easy-to-use interfaces",
+  "PageCount": 331,
+  "ThumbnailLink": "http://books.google.com/books/content?id=1D2bAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "RowVersion": "AAAAAAABAdE="
+}
+```
+
+#### Response
+
+```json
+{
+  "Id": 1,
+  "Code": "P001",
+  "ISBN10": "0596008031",
+  "ISBN13": "9780596008031",
+  "Title": "Designing Interfaces",
+  "Subtitle": "Patterns for Effective Interaction Design",
+  "Authors": "Jenifer Tidwell",
+  "Publisher": "\"O'Reilly Media, Inc.\"",
+  "PublishedDate": "2005-11-21",
+  "Description": "[Updated] Provides information on designing easy-to-use interfaces",
+  "PageCount": 331,
+  "ThumbnailLink": "http://books.google.com/books/content?id=1D2bAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+  "CreatedDate": "2017-09-21T13:49:45.243",
+  "RowVersion": "AAAAAAABIRE=",
+  "IsBorrowed": false
 }
 ```
 
 ### Delete a book
+
+Authorization is required to use this API.
 
 ```text
 DELETE /ralibrary/api/books/:Id
