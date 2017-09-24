@@ -138,55 +138,46 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdHJpY
 ```json
 [
   {
-    "Id": 1,
-    "Code": "P001",
-    "ISBN10": "0596008031",
-    "ISBN13": "9780596008031",
-    "Title": "Designing Interfaces",
-    "Subtitle": "Patterns for Effective Interaction Design",
-    "Authors": "Jenifer Tidwell",
-    "Publisher": "\"O'Reilly Media, Inc.\"",
-    "PublishedDate": "2005-11-21",
-    "Description": "Provides information on designing easy-to-use interfaces....",
-    "PageCount": 331,
-    "ThumbnailLink": "http://books.google.com/books/content?id=1D2bAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-    "CreatedDate": "2017-09-21T13:49:45.243",
-    "RowVersion": "AAAAAAABIRE=",
-    "IsBorrowed": true
+    "Borrower": "patrick@example.com",
+    "BorrowTime": "2017-09-24T11:08:48",
+    "ExpectedReturnTime": "2017-10-24T11:08:48",
+    "Book": {
+      "Id": 2,
+      "Code": "P002",
+      "ISBN10": "7111348664",
+      "ISBN13": "9787111348665",
+      "Title": "以用户为中心的产品设计",
+      "Subtitle": "",
+      "Authors": "Jesse James Garrett",
+      "Publisher": null,
+      "PublishedDate": "2011",
+      "Description": null,
+      "PageCount": 191,
+      "ThumbnailLink": null,
+      "CreatedDate": "2017-09-24T11:08:48.93",
+      "RowVersion": "AAAAAAAAF3I="
+    }
   },
   {
-    "Id": 2,
-    "Code": "P002",
-    "ISBN10": "7111348664",
-    "ISBN13": "9787111348665",
-    "Title": "以用户为中心的产品设计",
-    "Subtitle": "",
-    "Authors": "Jesse James Garrett",
-    "Publisher": null,
-    "PublishedDate": "2011",
-    "Description": null,
-    "PageCount": 191,
-    "ThumbnailLink": null,
-    "CreatedDate": "2017-09-21T13:49:45.243",
-    "RowVersion": "AAAAAAABAdI=",
-    "IsBorrowed": true
-  },
-  {
-    "Id": 3,
-    "Code": "P003",
-    "ISBN10": "7115313083",
-    "ISBN13": "9787115313089",
-    "Title": "Designing Interfaces",
-    "Subtitle": "Patterns for Effective Interaction Design",
-    "Authors": "[美] Susan Weinschenk",
-    "Publisher": "人民邮电出版社",
-    "PublishedDate": "2013",
-    "Description": "本书出自国际知名的设计心理学专家之手,讨论了设计师必须知道的100个心理学问题.",
-    "PageCount": 236,
-    "ThumbnailLink": null,
-    "CreatedDate": "2017-09-21T13:49:45.243",
-    "RowVersion": "AAAAAAABAdM=",
-    "IsBorrowed": true
+    "Borrower": "patrick@example.com",
+    "BorrowTime": "2017-09-24T05:19:43.957",
+    "ExpectedReturnTime": "2017-12-23T05:19:43.957",
+    "Book": {
+      "Id": 4,
+      "Code": "P004",
+      "ISBN10": "7513902062",
+      "ISBN13": "9787513902069",
+      "Title": "全球英语写作经典",
+      "Subtitle": "",
+      "Authors": "William Strunk, Jr.",
+      "Publisher": "民主与建设出版社",
+      "PublishedDate": "2013",
+      "Description": "本书阐述了英语写作风格的基本构成要素以及写作时容易误用的规则和用法. 全书共分为六大章, 其中以第二章(英语用法的八个基本规则)和第三章(英语写作的十个基本原理)共18个规则为最重要的写作原则, 读者在阅读本书时可以按照这个顺序循序渐进地进行学习.",
+      "PageCount": 187,
+      "ThumbnailLink": null,
+      "CreatedDate": "2017-09-24T11:08:48.93",
+      "RowVersion": "AAAAAAAAF3Q="
+    }
   }
 ]
 ```
