@@ -130,7 +130,7 @@ Authorization is required to use this API.
 ```text
 GET /ralibrary/api/user/books
 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.E41uEnlFDhLk_05ftd95xNdbxSuVpO1X1TTJ5uJDStE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdHJpY2tAZXhhbXBsZS5jb20ifQ.axyZPNbUPwPEuS379xURV7K6KRLFpywsOChqStxLYcA
 ```
 
 #### Example
@@ -198,7 +198,7 @@ Authorization is required to use this API.
 ```text
 POST /ralibrary/api/user/books/:Id
 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.E41uEnlFDhLk_05ftd95xNdbxSuVpO1X1TTJ5uJDStE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdHJpY2tAZXhhbXBsZS5jb20ifQ.axyZPNbUPwPEuS379xURV7K6KRLFpywsOChqStxLYcA
 ```
 
 #### Response
@@ -214,7 +214,7 @@ Authorization is required to use this API.
 ```text
 DELETE /ralibrary/api/user/books/:Id
 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.E41uEnlFDhLk_05ftd95xNdbxSuVpO1X1TTJ5uJDStE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdHJpY2tAZXhhbXBsZS5jb20ifQ.axyZPNbUPwPEuS379xURV7K6KRLFpywsOChqStxLYcA
 ```
 
 #### Response
@@ -328,7 +328,7 @@ Authorization is required to use this API.
 ```
 POST /ralibrary/api/books
 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.E41uEnlFDhLk_05ftd95xNdbxSuVpO1X1TTJ5uJDStE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdHJpY2tAZXhhbXBsZS5jb20ifQ.axyZPNbUPwPEuS379xURV7K6KRLFpywsOChqStxLYcA
 ```
 
 #### Input
@@ -394,7 +394,7 @@ Authorization is required to use this API.
 ```
 POST /ralibrary/api/books/:Id
 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.E41uEnlFDhLk_05ftd95xNdbxSuVpO1X1TTJ5uJDStE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdHJpY2tAZXhhbXBsZS5jb20ifQ.axyZPNbUPwPEuS379xURV7K6KRLFpywsOChqStxLYcA
 ```
 
 #### Input
@@ -469,7 +469,7 @@ Authorization is required to use this API.
 ```text
 DELETE /ralibrary/api/books/:Id
 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0ODMyMDAwMDAsImVtYWlsIjoicGF0cmljay56aG9uZ0BleGFtcGxlLmNvbSJ9.E41uEnlFDhLk_05ftd95xNdbxSuVpO1X1TTJ5uJDStE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhdHJpY2tAZXhhbXBsZS5jb20ifQ.axyZPNbUPwPEuS379xURV7K6KRLFpywsOChqStxLYcA
 ```
 
 #### Response
