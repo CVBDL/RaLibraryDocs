@@ -483,19 +483,19 @@ HTTP/1.1 204 No Content
 ### Get book details by ISBN
 
 ```text
-GET /ralibrary/apibook/isbn/:isbn
+GET /ralibrary/api/book/isbn/:isbn
 ```
 
 #### Example
 
 ```text
-GET /ralibrary/apibook/isbn/0596008031
+GET /ralibrary/api/book/isbn/0596008031
 ```
 
 OR
 
 ```text
-GET /ralibrary/apibook/isbn/9780596008031
+GET /ralibrary/api/book/isbn/9780596008031
 ```
 
 #### Response
